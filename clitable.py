@@ -1,3 +1,23 @@
+def print_table(contents, margin=1):
+    print(to_table(contents, margin))
+
+
+def to_table(contents, margin=1):
+    titles = len_title(contents)
+    line = to_line(titles)
+    header = to_header(titles)
+    body = to_body(titles, contents)
+
+    table = ''
+    table += line + '\n'
+    table += header + '\n'
+    table += line + '\n'
+    table += body + '\n'
+    table += line + '\n'
+
+    return table
+
+
 def len_title(contents):
     len_dict = {}
 
@@ -29,3 +49,17 @@ def to_header(contents, margin=1):
 
         header += (' ' * margin) + '|'
     return header
+
+
+def to_body(titles, contents, margin=1):
+    body = '|'
+    for key, value in contents.items():
+        body += (' ' * margin)
+        body += value
+
+        title_len = titles[key]
+        if len(value) < title_len:
+            body += (' ' * (title_len - len(value)))
+
+        body += (' ' * margin) + '|'
+    return body

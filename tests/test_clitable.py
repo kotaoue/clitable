@@ -3,7 +3,6 @@ from unittest import TestCase
 
 
 class ClitableTest(TestCase):
-
     def test_len_title(self):
         test_dict = {}
         test_dict['foo'] = 'fighters'
@@ -40,6 +39,16 @@ class ClitableTest(TestCase):
 
         self.assertEqual('| foo      | bar | hoge |', result)
 
+    def test_to_body(self):
+        test_dict = {}
+        test_dict['foo'] = 'fighters'
+        test_dict['bar'] = 'on'
+        test_dict['hoge'] = 'piyo'
+        len_title = clitable.len_title(test_dict)
+        result = clitable.to_body(len_title, test_dict)
+
+        self.assertEqual('| fighters | on  | piyo |', result)
+
     def test_diff_header_and_line(self):
         test_dict = {}
         test_dict['foo'] = 'fighters'
@@ -50,3 +59,28 @@ class ClitableTest(TestCase):
         header = clitable.to_header(len_title)
 
         self.assertEqual(len(line), len(header))
+
+    def test_diff_header_and_body(self):
+        test_dict = {}
+        test_dict['foo'] = 'fighters'
+        test_dict['bar'] = 'on'
+        test_dict['hoge'] = 'piyo'
+        len_title = clitable.len_title(test_dict)
+        header = clitable.to_header(len_title)
+        body = clitable.to_body(len_title, test_dict)
+
+        self.assertEqual(len(header), len(body))
+
+    def test_to_table(self):
+        test_dict = {}
+        test_dict['foo'] = 'fighters'
+        test_dict['bar'] = 'on'
+        test_dict['hoge'] = 'piyo'
+        result = clitable.to_table(test_dict)
+
+        expected = '+----------+-----+------+\n'
+        expected += '| foo      | bar | hoge |\n'
+        expected += '+----------+-----+------+\n'
+        expected += '| fighters | on  | piyo |\n'
+        expected += '+----------+-----+------+\n'
+        self.assertEqual(expected, result)
