@@ -32,16 +32,16 @@ def len_title(contents):
     return len_dict
 
 
-def to_line(contents, margin=1):
+def to_line(titles, margin=1):
     line = '+'
-    for value in contents.values():
+    for value in titles.values():
         line += ('-' * (margin + value + margin)) + '+'
     return line
 
 
-def to_header(contents, margin=1):
+def to_header(titles, margin=1):
     header = '|'
-    for key, value in contents.items():
+    for key, value in titles.items():
         header += (' ' * margin)
         header += key
         if len(key) < value:
