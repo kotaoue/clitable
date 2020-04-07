@@ -2,7 +2,7 @@
 print table at cli.
 
 # usage
-When Arguments type of "dict" are passed to "print_table".
+When Arguments type of "dict" or "list" are passed to "print_table".
 ```
 import clitable
 

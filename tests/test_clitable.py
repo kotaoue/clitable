@@ -84,3 +84,12 @@ class ClitableTest(TestCase):
         expected += '| fighters | on  | piyo |\n'
         expected += '+----------+-----+------+\n'
         self.assertEqual(expected, result)
+
+
+        test_list = []
+        test_list.append(['foo', 'fighters'])
+        test_list.append(['bar', 'on'])
+        test_list.append(['hoge', 'piyo'])
+        result = clitable.to_table(test_list)
+
+        self.assertEqual(expected, result)

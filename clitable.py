@@ -3,6 +3,9 @@ def print_table(contents, margin=1):
 
 
 def to_table(contents, margin=1):
+    if isinstance(contents, list):
+        contents = dict(contents)
+
     titles = len_title(contents)
     line = to_line(titles)
     header = to_header(titles)
