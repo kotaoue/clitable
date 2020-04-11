@@ -3,9 +3,6 @@ def print_table(contents, margin=1):
 
 
 def to_table(contents, margin=1):
-    if isinstance(contents, list):
-        contents = dict(contents)
-
     titles = len_title(contents)
     line = to_line(titles)
     header = to_header(titles)
@@ -15,36 +12,35 @@ def to_table(contents, margin=1):
     table += line + '\n'
     table += header + '\n'
     table += line + '\n'
-    table += body + '\n'
+    table += '\n'.join(body) + '\n'
     table += line + '\n'
 
     return table
 
 
-def len_title(contents):
+def len_title(content_list):
     len_dict = {}
 
-    for key, value in contents.items():
-        key_length = len(str(key))
-        value_length = len(str(value))
-        if key_length > value_length:
-            len_dict[key] = key_length
-        else:
-            len_dict[key] = value_length
+    for detail_dict in content_list:
+        for key, value in detail_dict.items():
+            item_length = max(len(str(key)), len(str(value)))
+            if item_length > len_dict.get(key, 0):
+                len_dict[key] = item_length
 
     return len_dict
 
 
-def to_line(titles, margin=1):
+def to_line(title_dict, margin=1):
     line = '+'
-    for value in titles.values():
+    for value in title_dict.values():
         line += ('-' * (margin + value + margin)) + '+'
     return line
 
 
-def to_header(titles, margin=1):
+def to_header(title_dict, margin=1):
     header = '|'
-    for key, value in titles.items():
+
+    for key, value in title_dict.items():
         header += (' ' * margin)
         header += key
         if len(key) < value:
@@ -54,15 +50,19 @@ def to_header(titles, margin=1):
     return header
 
 
-def to_body(titles, contents, margin=1):
-    body = '|'
-    for key, value in contents.items():
-        body += (' ' * margin)
-        body += value
+def to_body(title_dict, content_list, margin=1):
+    body = []
 
-        title_len = titles[key]
-        if len(value) < title_len:
-            body += (' ' * (title_len - len(value)))
+    for detail_dict in content_list:
+        body_row = '|'
+        for key, value in detail_dict.items():
+            body_row += (' ' * margin)
+            body_row += str(value)
 
-        body += (' ' * margin) + '|'
+            title_len = title_dict.get(key, 0)
+            if len(str(value)) < title_len:
+                body_row += (' ' * (title_len - len(str(value))))
+
+            body_row += (' ' * margin) + '|'
+        body.append(body_row)
     return body
