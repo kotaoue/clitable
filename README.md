@@ -2,22 +2,27 @@
 print table at cli.
 
 # usage
-When Arguments type of "dict" or "list" are passed to "print_table".
+When Arguments type "list" is passed to "print_table".
 ```
 import clitable
 
-dict = {}
-dict['foo'] = 'fighters'
-dict['bar'] = 'on'
-dict['hoge'] = 'piyo'
+target_list = [
+    {'id': 1, 'time': 1586995200, 'name': 'kota', 'do': 'breakfast'},
+    {'id': 2, 'time': 1587006000, 'name': 'kota', 'do': 'lunch'},
+    {'id': 3, 'time': 1587016800, 'name': 'kota', 'do': 'teatime'},
+    {'id': 4, 'time': 1587031200, 'name': 'kota', 'do': 'dinner'},
+]
 
-clitable.print_table(dict)
+clitable.print_table(target_list)
 ```
 The following result will be printed.
 ```
-+----------+-----+------+
-| foo      | bar | hoge |
-+----------+-----+------+
-| fighters | on  | piyo |
-+----------+-----+------+    
++----+------------+------+-----------+
+| id | time       | name | do        |
++----+------------+------+-----------+
+| 1  | 1586995200 | kota | breakfast |
+| 2  | 1587006000 | kota | lunch     |
+| 3  | 1587016800 | kota | teatime   |
+| 4  | 1587031200 | kota | dinner    |
++----+------------+------+-----------+ 
 ```
