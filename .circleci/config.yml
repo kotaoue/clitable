@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: python:3
+
+    steps:
+      - checkout
+      - run:
+          name: Install python module.
+          command: pip install -r requirements.txt
+      - run:
+          name: Run tests.
+          command: python -m unittest discover tests
+      - store_test_results:
+          path: test-results
+
+      - store_artifacts:
+          path: test-results   
