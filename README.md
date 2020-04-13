@@ -1,5 +1,6 @@
 # clitable
 print table at cli.
+![GitHub](https://img.shields.io/github/license/kotaoue/clitable)
 
 # usage
 When Arguments type "list" is passed to "print_table".
