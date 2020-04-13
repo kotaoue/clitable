@@ -1,5 +1,6 @@
-import clitable
 from unittest import TestCase
+
+import clitable
 
 
 class ClitableTest(TestCase):
