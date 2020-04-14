@@ -12,7 +12,7 @@ class ClitableTest(TestCase):
             {'id': 4, 'time': 1587031200, 'name': 'kota', 'do': 'dinner'},
         ]
 
-        result = clitable.len_title(test_list)
+        result = clitable._len_title(test_list)
         self.assertEqual(2, result['id'])
         self.assertEqual(10, result['time'])
         self.assertEqual(4, result['name'])
@@ -25,8 +25,8 @@ class ClitableTest(TestCase):
             {'id': 3, 'time': 1587016800, 'name': 'kota', 'do': 'teatime'},
             {'id': 4, 'time': 1587031200, 'name': 'kota', 'do': 'dinner'},
         ]
-        len_title = clitable.len_title(test_list)
-        result = clitable.to_line(len_title)
+        len_title = clitable._len_title(test_list)
+        result = clitable._to_line(len_title)
 
         self.assertEqual('+----+------------+------+-----------+', result)
 
@@ -37,8 +37,8 @@ class ClitableTest(TestCase):
             {'id': 3, 'time': 1587016800, 'name': 'kota', 'do': 'teatime'},
             {'id': 4, 'time': 1587031200, 'name': 'kota', 'do': 'dinner'},
         ]
-        len_title = clitable.len_title(test_list)
-        result = clitable.to_header(len_title)
+        len_title = clitable._len_title(test_list)
+        result = clitable._to_header(len_title)
 
         self.assertEqual('| id | time       | name | do        |', result)
 
@@ -49,8 +49,8 @@ class ClitableTest(TestCase):
             {'id': 3, 'time': 1587016800, 'name': 'kota', 'do': 'teatime'},
             {'id': 4, 'time': 1587031200, 'name': 'kota', 'do': 'dinner'},
         ]
-        len_title = clitable.len_title(test_list)
-        result = clitable.to_body(len_title, test_list)
+        len_title = clitable._len_title(test_list)
+        result = clitable._to_body(len_title, test_list)
 
         expected = [
             '| 1  | 1586995200 | kota | breakfast |',
@@ -67,7 +67,7 @@ class ClitableTest(TestCase):
             {'id': 3, 'time': 1587016800, 'name': 'kota', 'do': 'teatime'},
             {'id': 4, 'time': 1587031200, 'name': 'kota', 'do': 'dinner'},
         ]
-        result = clitable.to_table(test_list)
+        result = clitable._to_table(test_list)
 
         expected = ''
         expected += '+----+------------+------+-----------+\n'

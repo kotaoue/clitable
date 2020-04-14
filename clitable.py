@@ -1,12 +1,12 @@
 def print_table(contents, margin=1):
-    print(to_table(contents, margin))
+    print(_to_table(contents, margin))
 
 
-def to_table(contents, margin=1):
-    titles = len_title(contents)
-    line = to_line(titles)
-    header = to_header(titles)
-    body = to_body(titles, contents)
+def _to_table(contents, margin=1):
+    titles = _len_title(contents)
+    line = _to_line(titles)
+    header = _to_header(titles)
+    body = _to_body(titles, contents)
 
     table = ''
     table += line + '\n'
@@ -18,7 +18,7 @@ def to_table(contents, margin=1):
     return table
 
 
-def len_title(content_list):
+def _len_title(content_list):
     len_dict = {}
 
     for detail_dict in content_list:
@@ -30,14 +30,14 @@ def len_title(content_list):
     return len_dict
 
 
-def to_line(title_dict, margin=1):
+def _to_line(title_dict, margin=1):
     line = '+'
     for value in title_dict.values():
         line += ('-' * (margin + value + margin)) + '+'
     return line
 
 
-def to_header(title_dict, margin=1):
+def _to_header(title_dict, margin=1):
     header = '|'
 
     for key, value in title_dict.items():
@@ -50,7 +50,7 @@ def to_header(title_dict, margin=1):
     return header
 
 
-def to_body(title_dict, content_list, margin=1):
+def _to_body(title_dict, content_list, margin=1):
     body = []
 
     for detail_dict in content_list:
