@@ -4,9 +4,9 @@ def print_table(contents, margin=1):
 
 def _to_table(contents, margin=1):
     titles = _len_title(contents)
-    line = _to_line(titles)
-    header = _to_header(titles)
-    body = _to_body(titles, contents)
+    line = _to_line(titles, margin)
+    header = _to_header(titles, margin)
+    body = _to_body(titles, contents, margin)
 
     table = ''
     table += line + '\n'
