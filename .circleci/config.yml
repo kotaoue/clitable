@@ -11,7 +11,7 @@ jobs:
           command: pip install -r requirements.txt
       - run:
           name: Run tests.
-          command: python3 -m pytest tests/
+          command: python3 -m pytest --verbose tests/
       - store_test_results:
           path: test-results
 
