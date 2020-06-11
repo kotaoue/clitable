@@ -130,5 +130,5 @@ class ClitableTest(TestCase):
             {'id': 4, 'time': 1587031200, 'name': 'kota', 'do': 'dinner'},
         ]
 
-        #clitable.print_table(test_list)
+        clitable.print_table(test_list)
         self.assertTrue(True)
