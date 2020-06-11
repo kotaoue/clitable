@@ -1,5 +1,5 @@
-from unittest import TestCase
 from test.support import captured_stdout
+from unittest import TestCase
 
 import clitable
 
@@ -143,4 +143,3 @@ class ClitableTest(TestCase):
         self.assertEqual('| 3  | 1587016800 | kota | teatime   |', lines[5])
         self.assertEqual('| 4  | 1587031200 | kota | dinner    |', lines[6])
         self.assertEqual('+----+------------+------+-----------+', lines[7])
-
