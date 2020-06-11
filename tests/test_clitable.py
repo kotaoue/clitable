@@ -1,4 +1,5 @@
 from unittest import TestCase
+from test.support import captured_stdout
 
 import clitable
 
@@ -121,3 +122,25 @@ class ClitableTest(TestCase):
         expected += '|  4   |  1587031200  |  kota  |  dinner     |\n'
         expected += '+------+--------------+--------+-------------+\n'
         self.assertEqual(expected, result)
+
+    def test_print_table(self):
+        test_list = [
+            {'id': 1, 'time': 1586995200, 'name': 'kota', 'do': 'breakfast'},
+            {'id': 2, 'time': 1587006000, 'name': 'kota', 'do': 'lunch'},
+            {'id': 3, 'time': 1587016800, 'name': 'kota', 'do': 'teatime'},
+            {'id': 4, 'time': 1587031200, 'name': 'kota', 'do': 'dinner'},
+        ]
+
+        with captured_stdout() as stdout:
+            clitable.print_table(test_list)
+            lines = stdout.getvalue().splitlines()
+
+        self.assertEqual('+----+------------+------+-----------+', lines[0])
+        self.assertEqual('| id | time       | name | do        |', lines[1])
+        self.assertEqual('+----+------------+------+-----------+', lines[2])
+        self.assertEqual('| 1  | 1586995200 | kota | breakfast |', lines[3])
+        self.assertEqual('| 2  | 1587006000 | kota | lunch     |', lines[4])
+        self.assertEqual('| 3  | 1587016800 | kota | teatime   |', lines[5])
+        self.assertEqual('| 4  | 1587031200 | kota | dinner    |', lines[6])
+        self.assertEqual('+----+------------+------+-----------+', lines[7])
+
