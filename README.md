@@ -1,11 +1,14 @@
 # clitable
+
 print table at cli.
 
 ![GitHub](https://img.shields.io/github/license/kotaoue/clitable)
 
 # usage
+
 When Arguments type "list" is passed to "print_table".
-```
+
+```text
 import clitable
 
 target_list = [
@@ -17,8 +20,10 @@ target_list = [
 
 clitable.print_table(target_list)
 ```
+
 The following result will be printed.
-```
+
+```text
 +----+------------+------+-----------+
 | id | time       | name | do        |
 +----+------------+------+-----------+
