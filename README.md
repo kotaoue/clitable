@@ -6,7 +6,7 @@ print table at cli.
 [![codecov](https://codecov.io/gh/kotaoue/clitable/branch/main/graph/badge.svg)](https://codecov.io/gh/kotaoue/clitable)
 [![License](https://img.shields.io/github/license/kotaoue/clitable)](https://github.com/kotaoue/clitable/blob/main/LICENSE)
 
-# usage
+## usage
 
 When Arguments type "list" is passed to "print_table".
 
