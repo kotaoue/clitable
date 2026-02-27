@@ -2,7 +2,9 @@
 
 print table at cli.
 
-![GitHub](https://img.shields.io/github/license/kotaoue/clitable)
+[![Python](https://github.com/kotaoue/clitable/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/kotaoue/clitable/actions/workflows/test.yml)
+[![codecov](https://codecov.io/gh/kotaoue/clitable/branch/main/graph/badge.svg)](https://codecov.io/gh/kotaoue/clitable)
+[![License](https://img.shields.io/github/license/kotaoue/clitable)](https://github.com/kotaoue/clitable/blob/main/LICENSE)
 
 # usage
 
